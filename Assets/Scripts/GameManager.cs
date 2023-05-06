@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        
         _playerAnim.SetTrigger("death");
         FindObjectOfType<Player>().enabled = false;
         FindObjectOfType<TileGenerator>().enabled = false;
@@ -36,6 +37,9 @@ public class GameManager : MonoBehaviour
         {
             tile.speed = 0;
         }
+
+        PlayerPrefs.SetInt("best", _coinsCount);
+        PlayerPrefs.Save();
         
     }
 }
